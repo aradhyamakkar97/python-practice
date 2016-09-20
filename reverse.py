@@ -7,5 +7,8 @@ def Main():
     for char in rev:
         print(char)
 
+    data = 'Aradhya'
+    print(list(data[i] for i in range(len(data)-1,-1,-1)))
+
 if __name__ =='__main__':
     Main()
