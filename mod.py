@@ -1,4 +1,4 @@
-import vector2d
+from vector2d import Vector2D # or import * to load in everything
 
 def Main():
     vec1 = vector2d.Vector2D(5,6)
