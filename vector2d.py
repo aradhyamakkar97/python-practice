@@ -51,6 +51,8 @@ def Main():
     print(vec)
     print(vec2)
 
+    tempmethod = vec.getAngle
+
     vec = vec + vec2
     print(vec)
 
@@ -62,6 +64,8 @@ def Main():
 
     print(vec.normalized())
     print(vec.getAngle())
+
+    print(tempmethod())
 
 if __name__=='__main__':
     Main()
