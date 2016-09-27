@@ -5,10 +5,17 @@ def Main():
 
         con = sqlite3.connect('test.db')
         cur = con.cursor()
-        cur.execute('CREATE TABLE Pets(Id INT,Name TEXT,Price INT)')
-        cur.execute('INSERT INTO Pets VALUES(1,"Cat",400)')
-        cur.execute('INSERT INTO Pets VALUES(2,"Dog",456)')
-        cur.execute('INSERT INTO Pets VALUES(3,"Kutta",10000)')
+        cur.executescript("""DROP TABLE IF EXISTS Pets;
+        CREATE TABLE Pets(Id INT,Name TEXT,Price INT);
+        INSERT INTO Pets VALUES(1,"Cat",400);
+        INSERT INTO Pets VALUES(2,"Dog",456);
+        INSERT INTO Pets VALUES(3,"Kutta",10000);
+        """)
+
+        pets = ((4,"Rabbit",200),
+        (5,"Bird",60))
+
+        cur.executemany("INSERT INTO Pets VALUES(?,?,?)",pets)
 
         con.commit()
 
